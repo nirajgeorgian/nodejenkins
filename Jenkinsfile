@@ -24,4 +24,15 @@ pipeline {
 			}
 		}
 	}
+	post {
+		success {
+			echo 'SUCCESSFULLY BUILDED THE SCRIPT'
+		}
+		faulure {
+			echo 'BUILDING FAILED'
+		}
+		changed {
+			echo 'Jenkinsfile SCRIPT CHANGED'
+		}
+	}
 }
