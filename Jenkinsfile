@@ -19,7 +19,6 @@ pipeline {
 				timeout(time: 3, unit: 'MINUTES') {
 					retry(3) {
 						sh 'npm --version'
-						sh 'node index.js'
 					}
 				}
 			}
