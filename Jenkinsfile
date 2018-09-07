@@ -13,6 +13,11 @@ pipeline {
 				sh 'npm install'
 			}
 		}
+		stage('Docker') {
+			steps {
+				sh 'docker --version'
+			}
+		}
 		stage('Build') {
 			steps {
 				sh 'echo BUILDING PRODUCTION'
@@ -25,10 +30,16 @@ pipeline {
 		}
 	}
 	post {
+		always {
+			deleteDir() /* delete's the workspace directory */
+		}
 		success {
 			echo 'SUCCESSFULLY BUILDED THE SCRIPT'
 		}
 		failure {
+			mail to: 'nirajgeorgian01@gmail.com'
+					 subject: "failed Pipeline: ${currentBuild.fullDisplayName}"
+					 body: "Something error ${env.BUILD_DIR}"
 			echo 'BUILDING FAILED'
 		}
 		changed {
