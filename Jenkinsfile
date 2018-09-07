@@ -5,9 +5,18 @@ pipeline {
 		}
 	}
 	stages {
-		stage('build') {
+		state('Test') {
+			sh 'npm install'
+		}
+		stage('Build') {
 			steps {
-				sh 'npm --version'
+				sh 'echo BUILDING PRODUCTION'
+				timeout(time: 3, unit: 'MINUTES') {
+					retry(3) {
+						sh 'npm --version'
+						sh 'node index.js'
+					}					
+				}
 			}
 		}
 	}
