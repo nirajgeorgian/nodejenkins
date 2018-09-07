@@ -13,11 +13,6 @@ pipeline {
 				sh 'npm install'
 			}
 		}
-		stage('Docker') {
-			steps {
-				sh 'docker'
-			}
-		}
 		stage('Build') {
 			steps {
 				sh 'echo BUILDING PRODUCTION'
