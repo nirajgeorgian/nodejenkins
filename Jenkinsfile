@@ -5,7 +5,7 @@ pipeline {
 		}
 	}
 	stages {
-		state('Test') {
+		stage('Test') {
 			sh 'npm install'
 		}
 		stage('Build') {
@@ -15,7 +15,7 @@ pipeline {
 					retry(3) {
 						sh 'npm --version'
 						sh 'node index.js'
-					}					
+					}
 				}
 			}
 		}
