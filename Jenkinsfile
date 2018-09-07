@@ -37,8 +37,8 @@ pipeline {
 			echo 'SUCCESSFULLY BUILDED THE SCRIPT'
 		}
 		failure {
-			mail to: 'nirajgeorgian01@gmail.com'
-					 subject: "failed Pipeline: ${currentBuild.fullDisplayName}"
+			mail to: 'nirajgeorgian01@gmail.com',
+					 subject: "failed Pipeline: ${currentBuild.fullDisplayName}",
 					 body: "Something error ${env.BUILD_DIR}"
 			echo 'BUILDING FAILED'
 		}
