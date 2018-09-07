@@ -4,10 +4,13 @@ pipeline {
 			image 'node'
 		}
 	}
+	environment {
+		npm_config_cache = 'npm-cache'
+	}
 	stages {
 		stage('Test') {
 			steps {
-				sh 'npm install'				
+				sh 'npm install'
 			}
 		}
 		stage('Build') {
