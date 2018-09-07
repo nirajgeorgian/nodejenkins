@@ -28,7 +28,7 @@ pipeline {
 		success {
 			echo 'SUCCESSFULLY BUILDED THE SCRIPT'
 		}
-		faulure {
+		failure {
 			echo 'BUILDING FAILED'
 		}
 		changed {
